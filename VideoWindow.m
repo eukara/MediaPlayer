@@ -60,6 +60,7 @@ static void wakeup(void *context) {
 	const char *cmd[] = {"loadfile", [filePath UTF8String], NULL};
 	mpv_command(mpv, cmd);
 	[self makeKeyAndOrderFront: self];
+	[self setTitleWithRepresentedFilename: filePath];
 
 	/* default size and position */
 	NSRect frame = NSMakeRect(0, 0, 320, 240);
