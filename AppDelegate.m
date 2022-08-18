@@ -30,24 +30,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	NSUInteger pathArgIdx = [args indexOfObject: @"-GSFilePath"];
 	if (pathArgIdx != NSNotFound) {
 		NSString *pathArg = [args objectAtIndex: pathArgIdx + 1];
+		VideoWindow *videoWindow = [[VideoWindow alloc] init];
 		[videoWindow openFilePath: pathArg];
 	}
 }
 
--(void)setVideoWindow: (VideoWindow*)aVideoWindow {
+/* -(void)setVideoWindow: (VideoWindow*)aVideoWindow {
 	videoWindow = aVideoWindow;
-}
+} */
 
 -(void)openDocument: (id)sender {
 	NSLog(@"open document");
 	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
 	[openPanel runModal];
 	NSURL *selectedURL = [[openPanel URLs] firstObject];
+	VideoWindow *videoWindow = [[VideoWindow alloc] init];
 	[videoWindow openFilePath: [selectedURL path]];
 }
 
 -(BOOL)application: (NSApplication*)sharedApplication openFile: (NSString*)path {
 	NSLog(@"app received open app");
+	VideoWindow *videoWindow = [[VideoWindow alloc] init];
 	[videoWindow openFilePath: path];
 	// TODO: - Actually check if it opens.
 	return YES;

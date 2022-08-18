@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #import "VideoWindow.h"
 
 @interface AppDelegate: NSResponder<NSApplicationDelegate> {
-	VideoWindow *videoWindow;
+/*	VideoWindow *videoWindow; */
 } 
--(void)setVideoWindow: (VideoWindow*)aVideoWindow;
+/* -(void)setVideoWindow: (VideoWindow*)aVideoWindow; */
 @end

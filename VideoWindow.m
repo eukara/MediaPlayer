@@ -31,8 +31,8 @@ static void wakeup(void *context) {
 
 -(void)awakeFromNib {
 	NSLog(@"Did awake from nib");
-	AppDelegate *delegate = [NSApp delegate];
-	[delegate setVideoWindow: self];
+	/* AppDelegate *delegate = [NSApp delegate];
+	[delegate setVideoWindow: self]; */
 }
 
 -(void)close {
@@ -60,6 +60,11 @@ static void wakeup(void *context) {
 	const char *cmd[] = {"loadfile", [filePath UTF8String], NULL};
 	mpv_command(mpv, cmd);
 	[self makeKeyAndOrderFront: self];
+
+	/* default size and position */
+	NSRect frame = NSMakeRect(0, 0, 320, 240);
+	[self  setFrame:frame display:NO];
+	[self center];
 }
 
 -(void)closeMPVThenPerform: (SEL)selector onTarget: (id)target withObject: (id)object {
