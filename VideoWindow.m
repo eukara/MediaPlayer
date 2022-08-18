@@ -93,6 +93,7 @@ static void wakeup(void *context) {
 		switch (event->event_id) {
 		case MPV_EVENT_NONE:
 			break;
+		case MPV_EVENT_END_FILE:
 		case MPV_EVENT_SHUTDOWN:
 			NSLog(@"Event shutdown");
 			mpv_detach_destroy(mpv);
@@ -104,6 +105,7 @@ static void wakeup(void *context) {
 				onMPVCloseTarget = nil;
 
 			}
+			[self close];
 			break;
 		case MPV_EVENT_LOG_MESSAGE:
 			NSLog(@"Event log message");
