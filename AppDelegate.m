@@ -26,13 +26,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -(void)applicationDidFinishLaunching: (NSNotification*)aNotification {
 	NSLog(@"NSApp did finish launching..");
 	[NSBundle loadNibNamed: @"Application" owner: self];
-	NSArray *args = [[NSProcessInfo processInfo] arguments];
+
+	/* NSArray *args = [[NSProcessInfo processInfo] arguments];
 	NSUInteger pathArgIdx = [args indexOfObject: @"-GSFilePath"];
 	if (pathArgIdx != NSNotFound) {
 		NSString *pathArg = [args objectAtIndex: pathArgIdx + 1];
 		VideoWindow *videoWindow = [[VideoWindow alloc] init];
 		[videoWindow openFilePath: pathArg];
-	}
+	} */
 }
 
 /* -(void)setVideoWindow: (VideoWindow*)aVideoWindow {
